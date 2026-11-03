@@ -1,0 +1,12 @@
+medecin:
+    uri: /medecin
+    controller: Controller\MedecinController
+    httpMethod: [GET, POST]
+medecinupdate:
+    uri: '/medecin/{id}/update'
+    controller: Controller\MedecinUpdateController
+    httpMethod: [GET, POST]
+testttt:
+    uri: /testttt
+    controller: Controller\TesttttController
+    httpMethod: [GET]

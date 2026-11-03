@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+<h1>{{ titre }}</h1>
+
+<form method="post" action="{{ getNameToPath('medecinupdate', {'id': medecin.getId()}) }}">
+	<label for="nom">Nom</label>
+	<input type="text" id="nom" name="nom" value="{{ medecin.getNom() }}">
+
+	<label for="prenom">Prénom</label>
+	<input type="text" id="prenom" name="prenom" value="{{ medecin.getPrenom() }}">
+
+	<label for="email">Email</label>
+	<input type="email" id="email" name="email" value="{{ medecin.getEmail() }}">
+
+	<label for="password">Password</label>
+	<input type="password" id="password" name="password" value="{{ medecin.getPassword() }}">
+
+	<input type="submit" value="Enregistrer">
+</form>
+{% endblock %}

@@ -1,0 +1,47 @@
+{
+  "name": "studoo/edu-framework-skeleton",
+  "type": "project",
+  "description": "Edu Framework Skeleton",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.4",
+    "ext-mbstring": "*",
+    "ext-pdo_sqlite": "*",
+    "studoo/edu-framework": "dev-main"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Benoit Foujols",
+      "email": "Benoit.Foujols@ac-creteil.fr"
+    },
+    {
+      "name": "Studoo Community",
+      "homepage": "https://github.com/orgs/studoo-app/people"
+    }
+  ],
+  "scripts": {
+    "edu:start": [
+      "Composer\\Config::disableProcessTimeout",
+      "php -S localhost:8042 -t public public/index.php"
+    ],
+    "edu:init": [
+      "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-update-cmd": [
+      "@php -r \"if (file_exists('vendor/studoo/edu-framework/bin/edu')) { copy('vendor/studoo/edu-framework/bin/edu', 'bin/edu'); }\""
+    ]
+  },
+  "scripts-descriptions": {
+    "edu:init": "Create env file",
+    "edu:start": "Start local server"
+  }
+}
